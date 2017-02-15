@@ -1,0 +1,11 @@
+<br/>
+<ol class="breadcrumb">
+  <li><%= link_to 'Financeiro', entradas_path %></li>
+  <li class="active">Editar</li>
+</ol>
+
+<h2>Editar Saída</h2>
+
+<%= render 'form', saida: @saida %>
+
+<%= link_to 'Voltar', entradas_path, class:"btn btn-default" %>

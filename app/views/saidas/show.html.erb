@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @saida.data %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @saida.valor %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @saida.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_saida_path(@saida) %> |
+<%= link_to 'Back', saidas_path %>

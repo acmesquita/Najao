@@ -1,0 +1,2 @@
+json.extract! associado, :id, :matricula, :nome, :cpf, :rg, :nascimento, :celular, :email, :logradouro, :numero, :bairro, :cidade, :estado, :informativo, :status, :created_at, :updated_at
+json.url associado_url(associado, format: :json)

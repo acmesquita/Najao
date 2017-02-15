@@ -1,0 +1,36 @@
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <div>
+            <!-- <h3>Najão</h3> -->
+        </div>
+        <ul class="nav nav-pills nav-stacked" id="side-menu">
+            <!-- <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Pesquisa">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            Buscar
+                        </button>
+                    </span>
+                </div>
+            </li> -->
+            <li>
+                <%= link_to 'Associações', registros_path%>
+            </li>
+            <li>
+                <%= link_to 'Participante', associados_path%>
+            </li>
+            <li class="">
+                <%= link_to 'Financeiro', entradas_path %>
+            </li>
+             <ul class="nav nav-second-level">
+                <li>
+                   <%= link_to 'Nova Entrada', new_entrada_path %>
+                </li>
+                <li>
+                   <%= link_to 'Nova Saída', new_saida_path %>
+                </li>
+            </ul>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<br/>
+<% if notice.present? %>
+<div id="notice" class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= notice %></p></div>
+<% end %>
+<h3><%= @registro.associado.nome%></h3>
+<div class="container">
+	
+<h4>Primeiro Pagamento</h4>
+<div style="padding-left: 15px">
+	<p>
+	  <strong>Data:</strong>
+	  <%= format_date(@registro.dataPrimeiroPagamento) %>
+		<p>
+		  <strong>Valor:</strong>
+		  <%= format_valor(@registro.valorPrimeiroPagamento) %>
+		</p>
+	</p>
+</div>
+
+<h4>Segundo Pagamento</h4>
+<div style="padding-left: 15px">
+	<p>
+	  <strong>Data:</strong>
+	  <%= format_date(@registro.dataSegundoPagamento) %>
+		<p>
+		  <strong>Valor:</strong>
+		  <%= format_valor(@registro.valorSegundoPagamento) %>
+		</p>
+	</p>
+</div>
+</div>
+
+<div>
+	<%= link_to 'Editar', edit_registro_path(@registro), class:"btn btn-default" %> 
+	<%= link_to 'Voltar', registros_path , class:"btn btn-primary"%>	
+</div>

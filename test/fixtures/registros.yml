@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dataPrimeiroPagamento: 2017-01-24
+  valorPrimeiroPagamento: 1.5
+  dataSegundoPagamento: 2017-01-24
+  valorSegundoPagamento: 1.5
+
+two:
+  dataPrimeiroPagamento: 2017-01-24
+  valorPrimeiroPagamento: 1.5
+  dataSegundoPagamento: 2017-01-24
+  valorSegundoPagamento: 1.5

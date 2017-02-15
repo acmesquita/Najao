@@ -1,0 +1,93 @@
+<br/>
+<div class="row">
+  
+<ol class="breadcrumb">
+  <li><%= link_to 'Pariticipantes', associados_path %></li>
+  <li class="active">Vizualização</li>
+</ol>
+
+<% if notice.present? %>
+<div id="notice" class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= notice %></p></div>
+<% end %>
+
+<div class="col-lg-3">
+  <picture><%= cl_image_tag(@associado.picture_url, :width => 200, :crop => :thumb, :gravity => :face) %></picture>
+</div>
+<div class="col-lg-4">
+<p class="input">
+  <strong class="strong">Matricula:</strong>
+  <%= @associado.matricula %>
+</p>
+
+<p class="input">
+ <strong class="strong">Nome:</strong>
+  <%= @associado.nome %>
+</p>
+
+<p class="input">
+ <strong class="strong">Cpf:</strong>
+  <%= @associado.cpf %>
+</p>
+
+<p class="input">
+ <strong class="strong">Rg:</strong>
+  <%= @associado.rg %>
+</p>
+
+<p class="input">
+ <strong class="strong">Nascimento:</strong>
+  <%= format_date(@associado.nascimento) %>
+</p>
+
+<p class="input">
+ <strong class="strong">Celular:</strong>
+  <%= @associado.celular %>
+</p>
+
+<p class="input">
+ <strong class="strong">Email:</strong>
+  <%= @associado.email %>
+</p>
+</div>
+<div class="col-lg-4">
+<p class="input">
+ <strong class="strong">Logradouro:</strong>
+  <%= @associado.logradouro %>
+</p>
+
+<p class="input">
+ <strong class="strong">Numero:</strong>
+  <%= @associado.numero %>
+</p>
+
+<p class="input">
+ <strong class="strong">Bairro:</strong>
+  <%= @associado.bairro %>
+</p>
+
+<p class="input">
+ <strong class="strong">Cidade:</strong>
+  <%= @associado.cidade %>
+</p>
+
+<p class="input">
+ <strong class="strong">stado:</strong>
+  <%= @associado.estado %>
+</p>
+
+<p class="input">
+ <strong class="strong">Informativo:</strong>
+  <%= @associado.informativo == true ? 'Sim' : 'Não' %>
+</p>
+
+<p class="input">
+ <strong class="strong">Status:</strong>
+  <%= @associado.status %>
+</p>
+</div>
+<div class="col-lg-2">
+  <%= link_to 'Editar', edit_associado_path(@associado), class:"btn btn-primary" %>
+  <%= link_to 'Voltar', associados_path, class:"btn btn-default" %>  
+</div>
+</div>

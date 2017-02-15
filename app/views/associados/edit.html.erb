@@ -1,0 +1,11 @@
+<br/>
+<ol class="breadcrumb">
+  <li><%= link_to 'Participantes', associados_path %></li>
+  <li class="active">Edição</li>
+</ol>
+
+<h2>Editar</h2>
+
+<%= render 'form', associado: @associado %>
+
+<%= link_to 'Voltar', associados_path , class:"btn btn-default"%>

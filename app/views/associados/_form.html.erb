@@ -1,0 +1,105 @@
+<%= form_for(associado, :html => { :multipart => true }) do |f| %>
+  <% if associado.errors.any? %>
+    <div id="error_explanation">
+      <div id="notice" class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
+      <h4><%= pluralize(associado.errors.count, "Erros") %></h4>
+
+      <ul>
+      <% associado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="form-horizontal col-lg-5">
+    <h4>Dados Pessoais</h4>
+    <div class="form-group">
+      <%= f.label 'Fotos', class:"control-label col-sm-4"%>
+      <div class="col-sm-8"><%= f.file_field :picture , class:"form-control"%></div>
+    </div>
+  
+    <div class="form-group">
+        <%= f.label :matricula, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :matricula, class:"form-control" %></div>
+      </div>
+  
+    <div class="form-group">
+        <%= f.label :nome, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :nome, class:"form-control" %></div>
+      </div>
+  
+    <div class="form-group">
+        <%= f.label :cpf, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :cpf, class:"form-control" %></div>
+      </div>
+  
+    <div class="form-group">
+        <%= f.label :rg, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :rg, class:"form-control" %></div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :nascimento, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.date_field :nascimento, class:"form-control" %></div>
+      </div>
+    <div class="form-group">
+      <%= f.label :sexo, class:"control-label col-sm-4"%>
+      <div class="col-sm-8"><%= f.select :sexo, Associado.sexo.options, {}, class:"form-control"%></div>
+    </div>
+    <div class="form-group">
+        <%= f.label :celular, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :celular, class:"form-control" %></div>
+      </div>
+  
+    <div class="form-group">
+        <%= f.label :email, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :email, class:"form-control" %></div>
+      </div>
+  </div>
+  <div class="form-horizontal col-lg-5">
+    <h4>Endereço</h4>
+     <div class="form-group">
+        <%= f.label :logradouro, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :logradouro, class:"form-control" %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :numero, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :numero, class:"form-control" %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :bairro, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :bairro, class:"form-control" %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :cidade, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :cidade, class:"form-control" %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :estado, class:"control-label col-sm-4" %>
+        <div class="col-sm-8"><%= f.text_field :estado, class:"form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :informativo , class:"control-label col-sm-4"%>
+        <div class="col-sm-8"><%= f.check_box :informativo , class:"check_box"%></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :status, class:"control-label col-sm-4"%>
+        <div class="col-sm-8"><%= f.select :status, Associado.status.options, {}, class:"form-control"%></div>
+      </div>
+
+  </div>
+
+
+  <div class="form-group">
+    <%= f.submit 'Salvar', class:"btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<br/>
+<ol class="breadcrumb">
+  <li><%= link_to 'Associados', registros_path %></li>
+  <li class="active">Cadastro</li>
+</ol>
+<h2>Nova Associação</h2>
+
+<div class="">
+	<%= render 'form', registro: @registro %>
+
+	<%= link_to 'Voltar', registros_path, class:"btn btn-default" %>	
+</div>

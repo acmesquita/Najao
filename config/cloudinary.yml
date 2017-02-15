@@ -1,0 +1,18 @@
+development:
+  cloud_name: najao
+  api_key: '562898977352791'
+  api_secret: jYHGTVp_hWsLfQZNPWLa5PigrvA
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: najao
+  api_key: '562898977352791'
+  api_secret: jYHGTVp_hWsLfQZNPWLa5PigrvA
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: najao
+  api_key: '562898977352791'
+  api_secret: jYHGTVp_hWsLfQZNPWLa5PigrvA
+  enhance_image_tag: true
+  static_image_support: false

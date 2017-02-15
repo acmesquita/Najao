@@ -1,0 +1,60 @@
+
+<%= form_for(registro) do |f| %>
+  <% if registro.errors.any? %>
+    <div id="error_explanation">
+      <div id="" class=" alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+          <h4><%= pluralize(registro.errors.count, "Erros") %></h4>
+
+          <ul>
+          <% registro.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-horizontal col-md-8">  
+    <div class="form-group">
+      <%= f.label :associado, class:"col-sm-4 control-label"%>
+      <div class="col-sm-8">
+        <%= select("registro", "associado_id", Associado.all.collect {|p| [ p.nome, p.id ] },{}, class:"form-control")%>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.label 'Data Primeiro Pagamento' , class:"col-sm-4 control-label"%>
+        <div class="col-sm-8">
+          <%= f.date_field :dataPrimeiroPagamento, class:"form-control", :data => { :provide => :datepicker }%>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label 'Valor Primeiro Pagamento', class:"col-sm-4 control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_field :valorPrimeiroPagamento, class:"form-control" %> 
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label 'Data Segundo Pagamento', class:"col-sm-4 control-label" %>
+      <div class="col-sm-8">
+        <%= f.date_field :dataSegundoPagamento, class:"form-control"%>
+        
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label 'Valor Segundo Pagamento', class:"col-sm-4 control-label" %>
+      <div class="col-sm-8">
+      <%= f.text_field :valorSegundoPagamento, class:"form-control" %>
+      </div>
+    </div>
+
+  </div>
+  <div class="form-group actions">
+    <%= f.submit "Salvar", class:"btn btn-primary" %>
+  </div>
+<% end %>

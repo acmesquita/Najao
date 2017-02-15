@@ -1,0 +1,20 @@
+<nav class="fundosidebar navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <picture class="najaozim"><%= image_tag('najao_sem_fundo.png', size: "51x51")%></picture>
+        <a class="navbar-brand simboloNajao"><strong>A.A.A. VENENOSA FARMÁCIA UFPI </strong></a>
+    </div>
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="linknav dropdown-toggle" data-toggle="dropdown" href="">
+                <%= current_user.name unless  current_user.nil? %>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+<!-- 
+                <li><a href="#">Perfil</a></li>
+                <li class="divider"></li> -->
+                <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+            </ul>
+        </li>
+    </ul>
+    <%= render 'layouts/sidenav' %>
+</nav>

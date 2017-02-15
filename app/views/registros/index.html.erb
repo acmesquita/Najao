@@ -1,0 +1,72 @@
+<br/>
+
+<% if notice.present?%>
+<div id="notice" class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<div class="panel-body">
+<div class="" style="padding:10px;">
+<div class="row">
+
+  <div>
+    <h3 style="display: inline-block; margin-top: 7px;">Associações</h3>
+    <p style="display: inline-block; margin-left: 10px ; color: #555">Quantidade: <%= Registro.count%></p>
+    <p style="display: inline-block; margin-left: 10px ; color: #555">Valor Total: <span style="color: #000"><%= format_valor(Registro.sum &:valorTotal) %></span></p>
+    <%= link_to 'Nova Associação', new_registro_path, class:"btn btn-lg btn-primary botaoDireita" %>
+  </div>
+</div>
+</div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <form class="input-group">
+        <input type="text" class="form-control" value="<%= params[:q]%>" id="q" name="q" placeholder="Nome...">
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-default">Buscar</button>
+        </div><!-- /btn-group -->
+      </form><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+
+<div class="panel-body">
+<div class="" style="padding:10px;">
+  <div class="row">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="th">Associado</th>
+          <th class="th">1º Data</th>
+          <th class="th">1º Valor</th>
+          <th class="th">2º Data</th>
+          <th class="th">2º Valor</th>
+          <th class="th">Valor Total</th>
+          <th class="acoes" colspan="3">Ações</th>
+        </tr>
+      </thead>
+
+      <tbody class="tbody">
+        <% @registros.each do |registro| %>
+          <tr>
+            <td class="td"><%= link_to registro.associado.nome, associado_path(registro.associado) %></td>
+            <td class="td"><%= format_date(registro.dataPrimeiroPagamento) %></td>
+            <td class="td"><%= format_valor(registro.valorPrimeiroPagamento) %></td>
+            <td class="td"><%= format_date(registro.dataSegundoPagamento) %></td>
+            <td class="td"><%= format_valor(registro.valorSegundoPagamento ) %></td>
+            <td class="td"><%= format_valor(registro.valorTotal)%></td>
+            <td class="td"><%= link_to 'Editar', edit_registro_path(registro), class:"btn btn-info" %></td>
+            <td ><%= link_to 'Deletar', registro, method: :delete, data: { confirm: 'Deseja excluir essa associação?' }, class:"btn btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= will_paginate @registros, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
+</div>
+</div>
+
+<br/>

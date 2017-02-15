@@ -1,0 +1,111 @@
+<br/>
+<% if notice.present?%>
+<div id="notice" class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<br/>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="card card-blue w3-panel w3-card-2" style="width: 20rem;">
+      <div class="card-block">
+        <h4 class="card-title">Caixa</h4>
+        <% if valor_caixa > '0' %>
+          <h6 class="card-subtitle mb-2 text-muted entrada"><%= valor_caixa%></h6>
+        <% else %>
+          <h6 class="card-subtitle mb-2 text-muted saida"><%= valor_caixa%></h6>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card card-blue w3-panel w3-card-2" style="width: 20rem;">
+      <div class="card-block">
+        <h4 class="card-title">Entradas</h4>
+        <h6 class="card-subtitle mb-2 text-muted"><span class="entrada"><%= valor_total(@entradas)%></span></h6>
+        <%= link_to 'Nova Entrada', new_entrada_path, class:"adiciona_entrada" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card card-red w3-panel w3-card-2" style="width: 20rem;">
+      <div class="card-block">
+        <h4 class="card-title">Saídas</h4>
+        <h6 class="card-subtitle mb-2 text-muted"><span class="saida"><%= valor_total(@saidas)%></span></h6>
+        <%= link_to 'Nova Saída', new_saida_path, class:"adiciona_saida" %>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <form class="input-group" id="busca">
+         <div class='input-group date' id='datetimepicker10'>
+             <input type='text' class="form-control" id="q" name="q" value="<%= params[:q] || Time.new.strftime('%m/%Y')%>" />
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-default">Buscar</button>
+          </div><!-- /btn-group -->
+         </div>
+         <script type="text/javascript">
+             $(function () {
+                 $('#q').datetimepicker({
+                     viewMode: 'years',
+                     format: 'MM/YYYY'
+                 });
+             });
+         </script>
+      </form><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+    <div class="col-lg-3">
+    </div>
+  </div><!-- /.row -->
+<br/>
+<table class="table najao ">
+  <thead>
+     <tr>
+      <th></th>
+      <th><span class="titulo">Entradas</span></th>
+      <th></th>
+      <th><span class="titulo">Saídas</span></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Data</th>
+      <th>Valor</th>
+      <th>Descrição</th>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+      <% if todo.class.name == "Entrada"%>
+      <tr>
+        <td><%= format_date(todo.data) %></td>
+        <td><span class="entrada"><%= format_valor(todo.valor) %></span></td>
+        <td><%= format_descricao(todo.descricao) %></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% elsif todo.class.name == "Saida" %>
+      <tr>
+        <td><%= format_date(todo.data) %></td>
+        <td></td>
+        <td></td>
+        <td><span class="saida"><%= format_valor(todo.valor) %></span></td>
+        <td><%= format_descricao(todo.descricao) %></td>
+      </tr>
+      <% end %>
+    <% end %>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td><span class="entrada"><strong><%= valor_total(@entradas)%></span></strong></td>
+      <td></td>
+       <td><span class="saida"><strong><%= valor_total(@saidas)%></span></strong></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

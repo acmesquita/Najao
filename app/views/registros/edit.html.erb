@@ -1,0 +1,11 @@
+<br/>
+<ol class="breadcrumb">
+  <li><%= link_to 'Associação', registros_path %></li>
+  <li class="active">Edição</li>
+</ol>
+
+<h2>Editar Associação</h2>
+
+<%= render 'form', registro: @registro %>
+
+<%= link_to 'Voltar', registros_path, class:"btn btn-default" %>

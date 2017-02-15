@@ -1,0 +1,80 @@
+<% if notice.present?%>
+<div id="notice" class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong><%= notice %></strong>
+</div>
+<% end %>
+<br/>
+<div class="panel-body">
+<div class="" style="padding:10px;">
+<div class="row">
+
+  <div>
+    <h3 style="display: inline-block; margin-top: 7px;">Participantes</h3>
+    <p style="display: inline-block; margin-left: 10px ; color: #777">Quantidade: <%= Associado.count%></p> 
+    <%= link_to 'Novo Participante', new_associado_path, class:"btn btn-lg btn-primary botaoDireita" %>
+  </div>
+</div>
+</div>
+</div>
+
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <form class="input-group">
+        <input type="text" class="form-control" value="<%= params[:q]%>" id="q" name="q" placeholder="Nome...">
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-default">Buscar</button>
+        </div><!-- /btn-group -->
+      </form><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+<br/>
+  <div class="row">
+  <% @associados.each do |associado| %>
+    <div class="col-lg-3 col-sm-6">
+      <div class="card" style="width: 20rem;">
+<!--         <picture><%= image_tag(associado.picture_url, size: "150x150", class:"card-img-top") if associado.picture.present? %></picture> -->
+       <!--  <div><%= cl_image_tag(associado.picture.full_public_id, :width => 150, :height => 150, :crop => :fill) %></div> -->
+        <%= image_tag associado.picture_url%>
+        <div class="card-block">
+          <h4 class="card-title"><%= link_to associado.nome, associado%></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= associado.matricula%></h6>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        </div>
+      </div>
+    </div>
+  <% end %>    
+  </div>
+
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>Matricula</th>
+      <th>Nome</th>
+      <th>Nascimento</th>
+      <th>Celular</th>
+      <th>Email</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>Status</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @associados.each do |associado| %>
+      <tr>
+        <td><%= link_to associado.matricula, associado %></td>
+        <td><%= associado.nome %></td>
+        <td><%= format_date(associado.nascimento) %></td>
+        <td><%= associado.celular %></td>
+        <td><%= associado.email %></td>
+        <td><%= associado.cidade %></td>
+        <td><%= associado.estado %></td>
+        <td><%= associado.status %></td>
+        <td><%= link_to 'Editar', edit_associado_path(associado), class:"btn btn-info" %></td>
+        <td><%= link_to 'Deletar', associado, method: :delete, data: { confirm: 'Deseja excluir esse associado?' }, class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> -->

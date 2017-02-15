@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2017-02-04
+  valor: 1.5
+  descricao: MyString
+
+two:
+  data: 2017-02-04
+  valor: 1.5
+  descricao: MyString

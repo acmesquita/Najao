@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @entrada.data %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @entrada.valor %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @entrada.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_entrada_path(@entrada) %> |
+<%= link_to 'Back', entradas_path %>
