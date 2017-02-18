@@ -1,5 +1,4 @@
 class PictureUploader < CarrierWave::Uploader::Base
-
   include Cloudinary::CarrierWave 
 
   # Include RMagick or MiniMagick support:
@@ -49,5 +48,4 @@ class PictureUploader < CarrierWave::Uploader::Base
   # end
 
   #### Configuração Coundinary ####
-
 end

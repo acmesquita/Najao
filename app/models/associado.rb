@@ -1,6 +1,6 @@
 class Associado < ActiveRecord::Base 
 	extend Enumerize
-	mount_uploader :picture, PictureUploader
+	mount_base64_uploader :picture, PictureUploader
 
 	validates :matricula, :nome, :nascimento, :cpf, :email,  presence: true
 

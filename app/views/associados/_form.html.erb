@@ -14,12 +14,12 @@
     </div>
   </div>
   <% end %>
-
+  
   <div class="form-horizontal col-lg-5">
     <h4>Dados Pessoais</h4>
     <div class="form-group">
       <%= f.label 'Fotos', class:"control-label col-sm-4"%>
-      <div class="col-sm-8"><%= f.file_field :picture , class:"form-control"%></div>
+      <div class="col-sm-8"><%= cl_image_upload_tag(:picture) %></div>
     </div>
   
     <div class="form-group">
@@ -98,6 +98,14 @@
 
   </div>
 
+  <%= cloudinary_js_config %>
+  <script type="text/javascript">
+    $(function() {
+    if($.fn.cloudinary_fileupload !== undefined) {
+      $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+    }
+  });
+  </script>
 
   <div class="form-group">
     <%= f.submit 'Salvar', class:"btn btn-primary" %>

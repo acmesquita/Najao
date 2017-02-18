@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require cloudinary
 //= require moment
 //= require bootstrap-datetimepicker
-//= require cloudinary
 //= require_tree .

@@ -4,7 +4,7 @@
     <title>A.A.A. VENENOSA</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all'%>
-    <%= javascript_include_tag 'application', 'jquery.ui.widget', 'jquery.iframe-transport','jquery.fileupload', 'jquery.cloudinar' %>
+    <%= javascript_include_tag 'application' %>
 
 <!--     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -25,14 +25,6 @@
         
   </head>
   <body>
-    <%= cloudinary_js_config %>
-  <script type="text/javascript">
-      $(function() {
-      if($.fn.cloudinary_fileupload !== undefined) {
-        $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
-      }
-    });
-  </script>
     <div id="wrapper">
 
       <%= render 'layouts/navbar' %>

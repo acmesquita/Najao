@@ -24,7 +24,9 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # Gerenciador de fotos na nuvem
 gem 'carrierwave'
+gem 'carrierwave-base64'
 gem 'cloudinary'
+gem 'rack-cors'
 
 gem 'devise'
 

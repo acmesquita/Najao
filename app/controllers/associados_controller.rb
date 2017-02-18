@@ -19,6 +19,7 @@ class AssociadosController < ApplicationController
   # GET /associados/new
   def new
     @associado = Associado.new
+    
   end
 
   # GET /associados/1/edit
@@ -29,10 +30,9 @@ class AssociadosController < ApplicationController
   # POST /associados.json
   def create
     @associado = Associado.new(associado_params)
-    
     respond_to do |format|
       if @associado.save
-        format.html { redirect_to @associado, notice: 'Associado cadastrado com sucesso.' }
+        format.html { redirect_to @associado, notice: 'Participante cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @associado }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class AssociadosController < ApplicationController
   def update
     respond_to do |format|
       if @associado.update(associado_params)
-        format.html { redirect_to @associado, notice: 'Associado atualizado com sucesso.' }
+        format.html { redirect_to @associado, notice: 'Participante atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @associado }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class AssociadosController < ApplicationController
   def destroy
     @associado.destroy
     respond_to do |format|
-      format.html { redirect_to associados_url, notice: 'Associado deletado com sucesso.' }
+      format.html { redirect_to associados_url, notice: 'Participante deletado com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +73,6 @@ class AssociadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def associado_params
-      params.require(:associado).permit(:picture,:matricula, :nome, :cpf, :rg, :nascimento,:sexo, :celular, :email, :logradouro, :numero, :bairro, :cidade, :estado, :informativo, :status)
+      params.require(:associado).permit(:picture, :matricula, :nome, :cpf, :rg, :nascimento,:sexo, :celular, :email, :logradouro, :numero, :bairro, :cidade, :estado, :informativo, :status)
     end
 end
