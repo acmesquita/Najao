@@ -19,7 +19,6 @@ class AssociadosController < ApplicationController
   # GET /associados/new
   def new
     @associado = Associado.new
-    
   end
 
   # GET /associados/1/edit
@@ -30,6 +29,14 @@ class AssociadosController < ApplicationController
   # POST /associados.json
   def create
     @associado = Associado.new(associado_params)
+    if params[:picture].present?
+      preloaded = Cloudinary::PreloadedFile.new(params[:picture])         
+      raise "Invalid upload signature" if !preloaded.valid?
+      @associado.picture = preloaded.identifier
+    end
+    @associado.picture = params[:picture].to_s
+    puts @associado.picture_url
+    puts  params[:picture].to_s
     respond_to do |format|
       if @associado.save
         format.html { redirect_to @associado, notice: 'Participante cadastrado com sucesso.' }
@@ -45,7 +52,17 @@ class AssociadosController < ApplicationController
   # PATCH/PUT /associados/1.json
   def update
     respond_to do |format|
-      if @associado.update(associado_params)
+      if params[:picture].present?
+        preloaded = Cloudinary::PreloadedFile.new(params[:picture])         
+        raise "Invalid upload signature" if !preloaded.valid?
+        @associado.picture = preloaded.identifier
+      end
+      @associado.picture = params[:picture]
+    puts @associado.picture_url
+    puts params[:picture].to_s
+
+      if @associado.save && @associado.update(associado_params)
+        #Cloudinary::Uploader.upload(@associado.picture_url)
         format.html { redirect_to @associado, notice: 'Participante atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @associado }
       else
@@ -73,6 +90,6 @@ class AssociadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def associado_params
-      params.require(:associado).permit(:picture, :matricula, :nome, :cpf, :rg, :nascimento,:sexo, :celular, :email, :logradouro, :numero, :bairro, :cidade, :estado, :informativo, :status)
+      params.require(:associado).permit(:matricula, :nome, :cpf, :rg, :nascimento,:sexo, :celular, :email, :logradouro, :numero, :bairro, :cidade, :estado, :informativo, :status)
     end
 end

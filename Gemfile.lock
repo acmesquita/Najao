@@ -54,9 +54,6 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-    carrierwave-base64 (2.4.0)
-      carrierwave (>= 0.8.0)
-      mime-types (~> 3.0)
     cloudinary (1.4.0)
       aws_cf_signer
       rest-client
@@ -215,7 +212,6 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails
   byebug
   carrierwave
-  carrierwave-base64
   cloudinary
   coffee-rails (~> 4.2)
   devise
