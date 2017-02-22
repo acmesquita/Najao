@@ -19,7 +19,7 @@
     <h4>Dados Pessoais</h4>
     <div class="form-group">
       <%= f.label 'Fotos', class:"control-label col-sm-4"%>
-      <div class="col-sm-8"><%= f.file_field(:picture, class:"form-control cloudinary-fileupload") %></div>
+      <div class="col-sm-8"><%= cl_image_upload_tag(:picture) %></div>
     </div>
   
     <div class="form-group">
