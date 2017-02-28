@@ -85,7 +85,7 @@
       <% if todo.class.name == "Entrada"%>
       <tr>
         <td><%= format_date(todo.data) %></td>
-        <td><span class="entrada"><%= format_valor(todo.valor) %></span></td>
+        <td><span class="entrada"><%= link_to format_valor(todo.valor), edit_entrada_path(todo), class:"entrada" %></span></td>
         <td><%= format_descricao(todo.descricao) %></td>
         <td></td>
         <td></td>
@@ -95,7 +95,7 @@
         <td><%= format_date(todo.data) %></td>
         <td></td>
         <td></td>
-        <td><span class="saida"><%= format_valor(todo.valor) %></span></td>
+        <td><span class="saida"><%= link_to format_valor(todo.valor), edit_saida_path(todo), class:"saida" %></span></td>
         <td><%= format_descricao(todo.descricao) %></td>
       </tr>
       <% end %>

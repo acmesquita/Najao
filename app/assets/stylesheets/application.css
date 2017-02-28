@@ -85,12 +85,12 @@ a{
 }
 
 .entrada{
-	color: #00405d;
+	color: #00405d !important;
 	padding-left: 5px;
 }
 
 .saida{
-	color: red;
+	color: red !important;
 	padding-left: 5px;
 }
 .card-red{
