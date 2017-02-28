@@ -34,7 +34,7 @@
     <div class="form-group">
       <%= f.label 'Valor Primeiro Pagamento', class:"col-sm-4 control-label" %>
       <div class="col-sm-8">
-        <%= f.text_field :valorPrimeiroPagamento, class:"form-control" %> 
+        <%= f.text_field :valorPrimeiroPagamento, class:"form-control", :onkeyup=> "SubstituiVirgulaPorPonto(this)"  %> 
       </div>
     </div>
 
@@ -49,7 +49,7 @@
     <div class="form-group">
       <%= f.label 'Valor Segundo Pagamento', class:"col-sm-4 control-label" %>
       <div class="col-sm-8">
-      <%= f.text_field :valorSegundoPagamento, class:"form-control" %>
+      <%= f.text_field :valorSegundoPagamento, class:"form-control", :onkeyup=> "SubstituiVirgulaPorPonto(this)"  %>
       </div>
     </div>
 
@@ -57,4 +57,9 @@
   <div class="form-group actions">
     <%= f.submit "Salvar", class:"btn btn-primary" %>
   </div>
+
+  <script type="text/javascript">
+  function SubstituiVirgulaPorPonto(campo){  
+      campo.value = campo.value.replace(/,/gi, ".");}
+</script>
 <% end %>
