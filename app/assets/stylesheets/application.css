@@ -83,7 +83,12 @@ a{
 .btn-info{
 	color: yellow !important;
 }
-
+.container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
 .entrada{
 	color: #00405d !important;
 	padding-left: 5px;
