@@ -80,6 +80,6 @@ class RegistrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registro_params
-      params.require(:registro).permit(:associado_id, :dataPrimeiroPagamento, :valorPrimeiroPagamento, :dataSegundoPagamento, :valorSegundoPagamento)
+      params.require(:registro).permit(:associado_id, :dataPrimeiroPagamento, :valorPrimeiroPagamento, :formaPrimeiroPagamento, :dataSegundoPagamento, :valorSegundoPagamento, :formaSegundoPagamento)
     end
 end

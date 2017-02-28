@@ -12,6 +12,11 @@ pt-BR:
     sexo:
       masculino: "Masculino"
       feminino: "Feminino"
+    formaPagamento:
+      especie: "Espécie"
+      depositoBB: "Depósito BB"
+      depositoCEF: "Depósito CEF"
+
   #will_paginate
   will_paginate:
     previous_label: "&#8592; Anterior"

@@ -39,6 +39,11 @@
     </div>
 
     <div class="form-group">
+      <%= f.label "Forma de Pagamento", class:"control-label col-sm-4"%>
+      <div class="col-sm-8"><%= f.select :formaPrimeiroPagamento, Registro.formaPagamento.options, {}, class:"form-control"%></div>
+    </div>
+
+    <div class="form-group">
       <%= f.label 'Data Segundo Pagamento', class:"col-sm-4 control-label" %>
       <div class="col-sm-8">
         <%= f.date_field :dataSegundoPagamento, class:"form-control"%>
@@ -52,6 +57,12 @@
       <%= f.text_field :valorSegundoPagamento, class:"form-control", :onkeyup=> "SubstituiVirgulaPorPonto(this)"  %>
       </div>
     </div>
+
+    <div class="form-group">
+      <%= f.label "Forma de Pagamento", class:"control-label col-sm-4"%>
+      <div class="col-sm-8"><%= f.select :formaSegundoPagamento, Registro.formaPagamento.options, {}, class:"form-control"%></div>
+    </div>
+
 
   </div>
   <div class="form-group actions">

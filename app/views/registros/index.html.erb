@@ -34,16 +34,29 @@
 <div class="" style="padding:10px;">
   <div class="row">
     
-    <table class="table">
+    <table class="table table-hover table-condensed">
       <thead>
         <tr>
+          <th></th>
+          <th>Primeiro Pagamento</th>
+          <th></th>
+          <th></th>
+          <th>Segundo Pagamento</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th colspan="2"></th>
+        </tr>
+        <tr>
           <th class="th">Associado</th>
-          <th class="th">1º Data</th>
-          <th class="th">1º Valor</th>
-          <th class="th">2º Data</th>
-          <th class="th">2º Valor</th>
+          <th class="th">Data</th>
+          <th class="th">Valor</th>
+          <th class="th">Forma</th>
+          <th class="th">Data</th>
+          <th class="th">Valor</th>
+          <th class="th">Forma</th>
           <th class="th">Valor Total</th>
-          <th class="acoes" colspan="3">Ações</th>
+          <th class="acoes" colspan="2">Ações</th>
         </tr>
       </thead>
 
@@ -53,8 +66,10 @@
             <td class="td"><%= link_to registro.associado.nome, associado_path(registro.associado) %></td>
             <td class="td"><%= format_date(registro.dataPrimeiroPagamento) %></td>
             <td class="td"><%= format_valor(registro.valorPrimeiroPagamento) %></td>
+            <td class="td"><%= registro.formaPrimeiroPagamento %></td>
             <td class="td"><%= format_date(registro.dataSegundoPagamento) %></td>
             <td class="td"><%= format_valor(registro.valorSegundoPagamento ) %></td>
+            <td class="td"><%= registro.formaSegundoPagamento %></td>
             <td class="td"><%= format_valor(registro.valorTotal)%></td>
             <td class="td"><%= link_to 'Editar', edit_registro_path(registro), class:"btn btn-info" %></td>
             <td ><%= link_to 'Deletar', registro, method: :delete, data: { confirm: 'Deseja excluir essa associação?' }, class:"btn btn-danger" %></td>
