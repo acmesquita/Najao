@@ -1,20 +1,16 @@
-pluguins - Data tables (https://datatables.net)
-will_paginate
+#Najão
 
-add na Gemfile
+Sistema de controle e gerenciamento de associações e das entradas e saídas
 
-paginate(page, per_page: 10) controller
+## Funcionalidades
 
-<%= will_paginate @regitros%>
+- Cadastro de Participante com foto
+- Associação de Participantes
+- Gestor de Entradas e Saídas da Associação
+
+## Futuras funcionalidades
+
+- Melhoramento de usabilidade
 
 
-flex-box
-
-
-rails g scaffold entrada data:date valor:float descricao:string
-
-rails g scaffold saida data:date valor:float descricao:string
-
-DATE(substr(data,7,4)||'-'||substr(data,4,2)||'-'||substr(data,1,2))
-
-DATE(|substr(data,4,2)||'/'||substr(data,7,4)) 
+### Desenvolvido por Ana Catharina Mesquita
