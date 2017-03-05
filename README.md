@@ -12,5 +12,9 @@ Sistema de controle e gerenciamento de associações e das entradas e saídas
 
 - Melhoramento de usabilidade
 
+- Configurações:
+   * Gerenciamento de Usuário
+- Relatórios
+
 
 ### Desenvolvido por Ana Catharina Mesquita
